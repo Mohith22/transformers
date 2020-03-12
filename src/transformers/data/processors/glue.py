@@ -17,7 +17,7 @@
 
 import logging
 import os
-import json
+import jsonlines
 
 from ...file_utils import is_tf_available
 from .utils import DataProcessor, InputExample, InputFeatures
@@ -530,14 +530,18 @@ class BoolQProcessor(DataProcessor):
 
     def get_train_examples(self, data_dir):
         """See base class."""
-        with open(os.path.join(data_dir, "train.jsonl"), encoding='utf-8') as data_file:
-            data = json.loads(data_file.read())
+        with jsonlines.open(os.path.join(data_dir, "train.jsonl"), encoding='utf-8') as data_file:
+            data = []
+            for line in data_file.iter():
+                data.append(line)
         return self._create_examples(data, "train")
 
     def get_dev_examples(self, data_dir):
         """See base class."""
-        with open(os.path.join(data_dir, "dev.jsonl"), encoding='utf-8') as data_file:
-            data = json.loads(data_file.read())
+        with jsonlines.open(os.path.join(data_dir, "val.jsonl"), encoding='utf-8') as data_file:
+            data = []
+            for line in data_file.iter():
+                data.append(line)
         return self._create_examples(data, "dev")
 
     def get_labels(self):
