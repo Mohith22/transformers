@@ -526,7 +526,7 @@ class BoolQProcessor(DataProcessor):
             tensor_dict["idx"].numpy(),
             tensor_dict["question"].numpy().decode("utf-8"),
             tensor_dict["passage"].numpy().decode("utf-8"),
-            str(tensor_dict["label"].numpy()),
+            tensor_dict["label"].numpy(),
         )
 
     def get_train_examples(self, data_dir):
@@ -547,7 +547,7 @@ class BoolQProcessor(DataProcessor):
 
     def get_labels(self):
         """See base class."""
-        return ["false", "true"]
+        return [False, True]
 
     def _create_examples(self, lines, set_type):
         """Creates examples for the training and dev sets."""
