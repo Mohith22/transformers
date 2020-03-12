@@ -114,9 +114,9 @@ def glue_convert_examples_to_features(
         assert len(attention_mask) == max_length, "Error with input length {} vs {}".format(
             len(attention_mask), max_length
         )
-        assert len(token_type_ids) == max_length, "Error with input length {} vs {}".format(
+        #assert len(token_type_ids) == max_length, "Error with input length {} vs {}".format(
             len(token_type_ids), max_length
-        )
+        #)
 
         if output_mode == "classification":
             label = label_map[example.label]
@@ -130,7 +130,7 @@ def glue_convert_examples_to_features(
             logger.info("guid: %s" % (example.guid))
             logger.info("input_ids: %s" % " ".join([str(x) for x in input_ids]))
             logger.info("attention_mask: %s" % " ".join([str(x) for x in attention_mask]))
-            logger.info("token_type_ids: %s" % " ".join([str(x) for x in token_type_ids]))
+            #logger.info("token_type_ids: %s" % " ".join([str(x) for x in token_type_ids]))
             logger.info("label: %s (id = %d)" % (example.label, label))
 
         features.append(
