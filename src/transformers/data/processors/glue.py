@@ -15,6 +15,7 @@
 # limitations under the License.
 """ GLUE processors and helpers """
 
+import torch
 import logging
 import os
 import jsonlines
