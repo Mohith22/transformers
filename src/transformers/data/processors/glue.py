@@ -530,7 +530,7 @@ class BoolQProcessor(DataProcessor):
 
     def get_train_examples(self, data_dir):
         """See base class."""
-        with jsonlines.open(os.path.join(data_dir, "train.jsonl"), encoding='utf-8') as data_file:
+        with jsonlines.open(os.path.join(data_dir, "train.jsonl")) as data_file:
             data = []
             for line in data_file.iter():
                 data.append(line)
@@ -538,7 +538,7 @@ class BoolQProcessor(DataProcessor):
 
     def get_dev_examples(self, data_dir):
         """See base class."""
-        with jsonlines.open(os.path.join(data_dir, "val.jsonl"), encoding='utf-8') as data_file:
+        with jsonlines.open(os.path.join(data_dir, "val.jsonl")) as data_file:
             data = []
             for line in data_file.iter():
                 data.append(line)
