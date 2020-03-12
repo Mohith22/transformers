@@ -115,7 +115,7 @@ def glue_convert_examples_to_features(
             len(attention_mask), max_length
         )
         #assert len(token_type_ids) == max_length, "Error with input length {} vs {}".format(
-            len(token_type_ids), max_length
+            #len(token_type_ids), max_length
         #)
 
         if output_mode == "classification":
