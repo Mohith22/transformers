@@ -557,7 +557,6 @@ class BoolQProcessor(DataProcessor):
             text_b = line["passage"]
             label = line["label"]
             examples.append(InputExample(guid=guid, text_a=text_a, text_b=text_b, label=label))
-            print(examples)
         return examples
 
 
