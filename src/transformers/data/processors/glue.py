@@ -535,7 +535,6 @@ class BoolQProcessor(DataProcessor):
             data = []
             for line in data_file.iter():
                 data.append(line)
-        print(data)
         return self._create_examples(data, "train")
 
     def get_dev_examples(self, data_dir):
@@ -559,6 +558,7 @@ class BoolQProcessor(DataProcessor):
             text_b = line["passage"]
             label = line["label"]
             examples.append(InputExample(guid=guid, text_a=text_a, text_b=text_b, label=label))
+        print(examples)
         return examples
 
 
